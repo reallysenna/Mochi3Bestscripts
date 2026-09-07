@@ -1,0 +1,90 @@
+getgenv().CONFIG = {
+    block = {
+        no_gpu_crash = false,
+        no_ram_crash = false,
+        no_crash = false,
+        no_hard_crash = false,
+        no_lag = false,
+    },
+	notificationsEnabled = false,
+    chatSpyEnabled = false,
+    local_logs = false,
+    ["path"] = {
+        ["color"] = Color3.fromRGB(255,255,0),
+        ["thickness"] = 2,
+        ["segments"] = 74,
+        ["visualize"] = false,
+        ["outline"] = false,
+        ["outline_color"] = Color3.fromRGB(0,0,0),
+        ["outline_thickness"] = 3,
+    },
+    ["landing"] = {
+        ["color"] = Color3.fromRGB(255,255,255),
+        ["thickness"] = 2,
+        ["visualize"] = false,
+        ["outline"] = false,
+        ["outline_color"] = Color3.fromRGB(0,0,0),
+        ["outline_thickness"] = 3,
+    },
+    ["autodive"] = {
+        method = "Hold", -- Hold or Toggle (hold will enable when bind is pressed and disable when bind is released, toggle will leave it on/off until it is pressed again)
+        changeMode = "P", -- bind that changes the calculation formula to calculate for longs or shorts (if youre a lib you want it to be for shorts, if youre a lbr or rbr you want it to be for longs)
+        bind = "M", -- bind to turn the autodive on or off (follows your enable method, hold or toggle), numbers have to be typed out e.g. "Five"
+        settings = {
+            ["dive_offset"] = {
+                ["enabled"] = true,
+                ["randomize"] = false,
+                ["X"] = 1.2,
+                ["X_randomization_range"] = 0,
+                ["Z"] = 0.8,
+                ["Z_randomization_range"] = 0,
+            },
+            ["velocity"] = {
+                ["amount"] = 48,
+            },
+            ["distance"] = {
+                ["max"] = 18,
+                ["min"] = 5.3,
+            },
+            ["regulate_dive_angle"] = {
+                ["enabled"] = false,
+            },
+            ["delay"] = {
+                ["enabled"] = true,
+                ["amount"] = 40,
+                ["randomize"] = false,
+                ["randomize_amount"] = 0,
+            },
+        },
+    },
+    ["autoreceive"] = {
+        mode = "Move",
+		method = "Toggle",
+		bind = "P",
+        settings = {
+            ["velocity"] = {
+                ["amount"] = 48,
+            },
+            ["distance"] = {
+                ["min"] = 2.4,
+                ["max"] = 40,
+            },
+            movement_priority_override = true,
+            findInterceptionPoint = {
+                ["enabled"] = true, 
+                ["y_level"] = 5.5,
+            },
+        },
+    },
+    ["misc"] = {
+        ["auto_camera_flick"] = false,
+        ["internal_macro"] = false,
+        ["internal_macro_bind"] = Enum.KeyCode.J,
+        ["internal_macro_enabled"] = false,
+        ["internal_macro_interval"] = 0
+    },
+}
+
+getgenv().SCRIPT_KEY = "3fc6dd71-609f-4371-b5cc-5138fdb4577f"
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/reallysenna/Mochi3Bestscripts/refs/heads/main/amonguissuss.txt"))()
