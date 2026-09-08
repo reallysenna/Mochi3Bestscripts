@@ -1,5 +1,6 @@
 --> IF JUST CHANGING CONFIG, COPY FROM HERE <---
 getgenv().CONFIG = {
+    ignore_stray_balls = true,
     block = {
         no_gpu_crash = false,
         no_ram_crash = false,
@@ -85,7 +86,10 @@ getgenv().CONFIG = {
         ["internal_macro_interval"] = 0
     },
 }
-getgenv().REFRESH_CONFIG()
+
+if getgenv().REFRESH_CONFIG then
+    getgenv().REFRESH_CONFIG()
+end
 
 
 --> IF JUST CHANGING CONFIG, COPY UNTIL HERE <--- ( DO NOT COPY THE SCRIPT_KEY AND LOADSTRING IF JUST CHANGING CONFIG !!!!! )
