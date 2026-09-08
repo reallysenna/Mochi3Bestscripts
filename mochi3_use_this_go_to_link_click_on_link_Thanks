@@ -1,3 +1,4 @@
+--> IF JUST CHANGING CONFIG, COPY FROM HERE <---
 getgenv().CONFIG = {
     block = {
         no_gpu_crash = false,
@@ -40,7 +41,7 @@ getgenv().CONFIG = {
                 ["Z_randomization_range"] = 0,
             },
             ["velocity"] = {
-                ["amount"] = 48,
+                ["amount"] = 40,
             },
             ["distance"] = {
                 ["max"] = 18,
@@ -84,6 +85,11 @@ getgenv().CONFIG = {
         ["internal_macro_interval"] = 0
     },
 }
+getgenv().REFRESH_CONFIG()
+
+
+--> IF JUST CHANGING CONFIG, COPY UNTIL HERE <--- ( DO NOT COPY THE SCRIPT_KEY AND LOADSTRING IF JUST CHANGING CONFIG !!!!! )
+
 
 getgenv().SCRIPT_KEY = "3fc6dd71-609f-4371-b5cc-5138fdb4577f"
 
