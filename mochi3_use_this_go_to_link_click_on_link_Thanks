@@ -1,6 +1,7 @@
 --> IF JUST CHANGING CONFIG, COPY FROM HERE <---
 getgenv().CONFIG = {
     ignore_stray_balls = true,
+    check_if_out = true,
     block = {
         no_gpu_crash = false,
         no_ram_crash = false,
@@ -33,6 +34,9 @@ getgenv().CONFIG = {
         changeMode = "P", -- bind that changes the calculation formula to calculate for longs or shorts (if youre a lib you want it to be for shorts, if youre a lbr or rbr you want it to be for longs)
         bind = "M", -- bind to turn the autodive on or off (follows your enable method, hold or toggle), numbers have to be typed out e.g. "Five"
         settings = {
+            ["check_if_out"] = {
+                ["enabled"] = true, -- Checks if the ball's landing position is inside courtPart; skips diving/receiving if out
+            },
             ["dive_offset"] = {
                 ["enabled"] = true,
                 ["randomize"] = false,
@@ -64,6 +68,9 @@ getgenv().CONFIG = {
 		method = "Toggle",
 		bind = "P",
         settings = {
+            ["check_if_out"] = {
+                ["enabled"] = true,
+            },
             ["velocity"] = {
                 ["amount"] = 48,
             },
