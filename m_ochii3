@@ -1,0 +1,101 @@
+--> IF JUST CHANGING CONFIG, COPY FROM HERE <---
+
+getgenv().CONFIG = {
+
+    -- When true, only targets the active ball currently in-play inside the court.
+    -- Ignores stray volleyballs rolling around the gym or practice areas.
+    ignore_stray_balls = true,
+
+
+    ["autodive"] = {
+        -- Activation method:
+        -- "Hold"   = Activates while holding down the keybind, deactivates on release.
+        -- "Toggle" = Press once to enable, press again to disable.
+        method = "Hold",
+
+        -- Keybind to activate autodive (must be string name of Enum.KeyCode, e.g. "M", "Q", "Five", "LeftAlt").
+        bind = "LeftControl",
+
+        settings = {
+            -- Receive Hitbox Trajectory Check:
+            -- Continuously sweeps the ball's flight path against your player
+            -- If the ball path intersects your hitbox (e.g. spiked or landing behind you),
+            -- it cancels any dive attempt and clicks to receive instead !!!!
+            ["hitbox_check"] = {
+                ["enabled"] = true,
+                ["max_hit_time"] = 0.35, -- Maximum seconds before impact to trigger the bump click (0.35s aligns with the bump pose duration)
+            },
+
+            -- Boundary check:
+            -- Calculates whether the ball will land OUT of bounds.
+            -- If true and the ball will land outside, autodive and bumping are cancelled so you score the point.
+            ["check_if_out"] = {
+                ["enabled"] = true,
+            },
+
+            -- Positional offset:
+            -- Offsets where your character dives relative to the ball's landing point.
+            ["dive_offset"] = {
+                ["enabled"] = true,
+                ["randomize"] = false,
+                ["X"] = 1.2,
+                ["X_randomization_range"] = 0,
+                ["Z"] = 0.8,
+                ["Z_randomization_range"] = 0,
+            },
+
+            -- Ball speed threshold:
+            -- Only dives if the ball's velocity magnitude is greater than this value.
+            -- (Prevents diving for slow rolling or floating balls).
+            ["velocity"] = {
+                ["amount"] = 48,
+            },
+
+            -- Distance triggers (in studs):
+            -- max = Maximum distance from ball landing spot to consider diving / bumping.
+            -- min = If distance is between min and max, it dives. If closer than min, it bumps without diving.
+            ["distance"] = {
+                ["max"] = 14,
+                ["min"] = 6,
+            },
+
+            -- Dive angle regulation:
+            -- When enabled, restricts and snaps dive angles to legitimate 45° increments (0, 45, 90, 135, etc.).
+            ["regulate_dive_angle"] = {
+                ["enabled"] = false,
+            },
+
+            -- Humanization delay:
+            -- Adds a delay before initiating the dive to look natural and bypass instant-reaction checks.
+            ["delay"] = {
+                ["enabled"] = true,
+                ["amount"] = 160, -- Delay in milliseconds (e.g. 40 = 0.04s)
+                ["randomize"] = false,
+                ["randomize_amount"] = 0, -- If randomize is true, picks between (amount - randomize_amount) and (amount + randomize_amount)
+            },
+        },
+    },
+
+    -- Instantly snaps character rotation towards your camera look direction when pressing Space to jump.
+    -- (Note: The script reads this at root level `config.auto_camera_flick`).
+    auto_camera_flick = false,
+
+    ["misc"] = {
+        -- Repeatedly triggers sprint while held down to conserve/manage stamina.
+        ["internal_macro"] = false,
+        ["internal_macro_bind"] = Enum.KeyCode.J,
+        ["internal_macro_enabled"] = false, -- Handled internally by script; keep false
+        ["internal_macro_interval"] = 0,     -- Wait time (in seconds) between sprint pulses
+    },
+}
+
+if getgenv().REFRESH_CONFIG then
+    getgenv().REFRESH_CONFIG()
+end
+
+--> IF JUST CHANGING CONFIG, COPY UNTIL HERE <--- ( DO NOT COPY THE SCRIPT_KEY AND LOADSTRING IF JUST CHANGING CONFIG !!!!! )
+
+
+getgenv().SCRIPT_KEY = "3fc6dd71-609f-4371-b5cc-5138fdb4577f"
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/reallysenna/Mochi3Bestscripts/refs/heads/main/amonguissuss.txt"))()
